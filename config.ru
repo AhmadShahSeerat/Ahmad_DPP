@@ -5,4 +5,6 @@ require './config/environment'
 # end
 
 ## so I have stopped this warning in order to make tux work
+use DesignsController
 run ApplicationController
+
