@@ -1,7 +1,8 @@
 
 class User < ActiveRecord::Base
-    has_many :orders
-    has_many :designs, through: :orders 
+# has_secure_password 
+# has_many :designs 
+# validate :email, uniqueness: true
 end
 
 

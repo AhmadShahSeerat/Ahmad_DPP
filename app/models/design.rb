@@ -1,6 +1,7 @@
 class Design < ActiveRecord::Base 
-    has_many :orders 
-    has_many :users, through: :orders
+    belongs_to :order 
+    belongs_to :location 
+    belongs_to :user
 end
 
 

@@ -1,4 +1,4 @@
 class Order < ActiveRecord::Base 
-    belongs_to :user 
-    belongs_to :design 
+   has_many :designs 
+   has_many :locations, through: :designs
 end

@@ -1,18 +1,98 @@
-Order.destroy_all
-Design.destroy_all 
-User.destroy_all
- 
-user1 = User.create(user_name: "Ahmad shah", password: "Password")
-user2 = User.create(user_name: "Joe", password: "Password")
-user3 = User.create(user_name: "Tony", password: "Password")
+            nyc_id = location.create(city: "NYC/NYS").id
+            la_id = location.create(city: "Los Angeles").id
+            va_id = location.create(city: "Virginia").id
+            ga_id = location.create(city: "Georgia").id
 
-design1 = Design.create(title: "black and white", description: "this design must remind us the old days")
-design2 = Design.create(title: "color", description: "should resemble the greatest mix of color")
-design3 = Design.create(title: "robotic", description: "all about computer and its design robotic description")
+#nyc_id
+Design.create(
+    title: "Billboard",  
+    description: "These type of billboards designs are made ready for urgent times to be printed.",
+    director_id: Director.find_or_create_by(title: "premade design").id,
+    genre_id: nyc_id
 
+Design.create(
+    title: "Flex",  
+    description: "Most customers prefers their own designs, that reflects their business and the type of work they do.",
+    director_id: Director.find_or_create_by(title: "custom_made design").id,
+    genre_id: nyc_id 
 
+Design.create(
+    title: "outdoor",  
+    description: "These type of billboards designs are made ready for urgent times to be printed.",
+    order_id: Director.find_or_create_by(title: "premade design").id,
+    genre_id: nyc_id
 
-order1 = Order.create(name: "new year eve", description: "must be decorated with new year in background", user_id: "user1", design_id: "design1")
-order2 = Order.create(name: "fourth of july", description: "patriotic motto all over", user_id: "user2",  design_id: "design2")
-order2 = Order.create(name: "President day", description: "must say something about Abraham lincoln", user_id: "user3", design_id: "design3")
+Design.create(
+    title: "in-door",  
+    description: "These desigs are time consuming, they are usually shown in offices, must be unique and beautiful.",
+    order_id: Director.find_or_create_by(title: "special design").id,
+    genre_id: nyc_id
 
+Design.create(
+    title: "out-door",  
+    description: "These type of billboards designs are made ready for urgent times to be printed.",
+    order_id: Director.find_or_create_by(title: "logo design").id,
+    genre_id: nyc_id
+
+    #la_id
+Design.create(
+    title: "flex",  
+    description: "Most customers prefers their own designs, that reflects their business and the type of work they do.",
+    order_id: Director.find_or_create_by(title: "logo design").id,
+    genre_id: nyc_id
+
+    Design.create(
+        title: "in-door",  
+        description: "These desigs are time consuming, they are usually shown in offices, must be unique and beautiful.",
+        order_id: Director.find_or_create_by(title: "premade design").id,
+        genre_id: nyc_id
+    
+    Design.create(
+        title: "special",  
+        description: "These desigs are time consuming, they are usually shown in offices, must be unique and beautiful.",
+        order_id: Director.find_or_create_by(title: "special design").id,
+        genre_id: nyc_id
+    
+    Design.create(
+        title: "out-door",  
+        description: "These type of billboards designs are made ready for urgent times to be printed.",
+        order_id: Director.find_or_create_by(title: "logo design").id,
+        genre_id: nyc_id
+
+        #va_id
+        Design.create(
+            title: "outdoor",  
+            description: "These type of billboards designs are made ready for urgent times to be printed.",
+            order_id: Director.find_or_create_by(title: "premade design").id,
+            genre_id: nyc_id
+        
+        Design.create(
+            title: "in-door",  
+            description: "These desigs are time consuming, they are usually shown in offices, must be unique and beautiful.",
+            order_id: Director.find_or_create_by(title: "special design").id,
+            genre_id: nyc_id
+        
+        Design.create(
+            title: "logo",  
+            description: "Logos require more attention, every dot, line must resemble a sign or something.",
+            order_id: Director.find_or_create_by(title: "logo design").id,
+            genre_id: nyc_id
+
+            #ga_id
+            Design.create(
+                title: "billboard",  
+                description: "These type of billboards designs are made ready for urgent times to be printed.",
+                order_id: Director.find_or_create_by(title: "premade design").id,
+                genre_id: nyc_id
+            
+            Design.create(
+                title: "in-door",  
+                description: "These desigs are time consuming, they are usually shown in offices, must be unique and beautiful.",
+                order_id: Director.find_or_create_by(title: "special design").id,
+                genre_id: nyc_id
+            
+            Design.create(
+                title: "flex",  
+                description: "Most customers prefers their own designs, that reflects their business and the type of work they do.",
+                order_id: Director.find_or_create_by(title: "logo design").id,
+                genre_id: nyc_id
