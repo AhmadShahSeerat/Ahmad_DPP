@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_121753) do
+ActiveRecord::Schema.define(version: 2021_03_30_154444) do
 
   create_table "designs", force: :cascade do |t|
     t.string "title"
-    t.string "style"
     t.text "description"
-    t.integer "order_id"
+    t.string "style"
     t.integer "location_id"
+    t.integer "order_id"
+    t.index ["location_id"], name: "index_designs_on_location_id"
+    t.index ["order_id"], name: "index_designs_on_order_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -28,9 +30,6 @@ ActiveRecord::Schema.define(version: 2021_03_29_121753) do
     t.string "title"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-  end
-
+  add_foreign_key "designs", "locations"
+  add_foreign_key "designs", "orders"
 end

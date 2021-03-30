@@ -11,3 +11,5 @@ gem 'rack'
 
 gem 'require_all'
 gem "tux", "~> 0.3.0"
+
+gem "shotgun", "~> 0.9.2"

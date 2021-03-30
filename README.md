@@ -28,5 +28,18 @@ class CreateTableOrders < ActiveRecord::Migration
         end
     end
   end
+
+
+
+
+  #### class CreateTableOrders < ActiveRecord::Migration[6.1]
+  def change
+    create_table :orders do |t|
+      t.string :title 
+    end
+  end
+end
+
+
   
 
