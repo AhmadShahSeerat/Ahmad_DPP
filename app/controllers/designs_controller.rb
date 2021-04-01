@@ -21,12 +21,14 @@ class DesignsController < ApplicationController
 
 
         post '/designs' do 
-            design = Design.new(title: params["title"])
-
+            design = Design.new(title: params["design"])
             if design.save 
                 redirect "/designs/#{design.id}"
             else 
-                redirect "/designs/new"
+
+                "Error #{design.errors.full_messages.join(", ")}"
+                                # redirect "/designs/new"
+
         end
     end
 
@@ -40,7 +42,7 @@ class DesignsController < ApplicationController
     design = Design.find_by_id(params[:id])
         design.title = params["title"]
 
-        if design.save
+        if design.update(params["design"])
             redirect "/designs/#{design.id}"
         else
             redirect "/designs/#{design.id}/edit"
