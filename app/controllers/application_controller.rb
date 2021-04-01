@@ -1,18 +1,18 @@
-require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-  end
-
-  get "/" do
-    erb :welcome
-  end
-
-  get '/juan' do 
-    erb :index
-  end
+  # set :views, Proc.new { File.join(root, "../views") }
   
+  configure do
+      set :views, 'app/views'
+      set :public_folder, 'public'
+  end
+
+  get '/' do
+    erb :search
+end
+
+get '/search' do
+   @design = Design.find_by(title: params["title"])
+   erb :results
+end
 end

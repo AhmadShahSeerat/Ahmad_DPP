@@ -1,10 +1,16 @@
+Design.destroy_all
+Location.destroy_all
+Order.destroy_all
+
+
+
 nyc_id = Location.create(city: "NYC_five_boroughs").id
 la_id = Location.create(city: "Los_Angeles").id
 va_id = Location.create(city: "Virginia").id
 
 # # nyc areas
 Design.create(
-    title: "trial", 
+    title: "New Year eve", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "premade designs").id,
@@ -12,7 +18,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "NYC logo of tunnels and bridges", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -20,32 +26,23 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "store front signs", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "custom made design").id,
     location_id: nyc_id
 )
 
-# la_id
 Design.create(
-    title: "trial", 
+    title: "New Year eve", 
     description: "ddd", 
     style: "black and white",
-    order_id: Order.find_or_create_by(title: "special desin").id,
+    order_id: Order.find_or_create_by(title: "premade designs").id,
     location_id: nyc_id
 )
 
 Design.create(
-    title: "trial", 
-    description: "ddd", 
-    style: "black and white",
-    order_id: Order.find_or_create_by(title: "special desin").id,
-    location_id: nyc_id
-)
-
-Design.create(
-    title: "trial", 
+    title: "NYC logo of tunnels and bridges", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -53,7 +50,42 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "store front signs", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "custom made design").id,
+    location_id: nyc_id
+)
+
+
+
+# la_id
+Design.create(
+    title: "Thanksgiving", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "special desin").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "Christmass", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "special desin").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "LA official logo", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "logo design").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "Parks and recreational areas", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "custom made").id,
@@ -62,7 +94,7 @@ Design.create(
 
 # va_id
 Design.create(
-    title: "trial", 
+    title: "Birthdays and anniversaries", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special design").id,
@@ -70,7 +102,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "Graduation ceremonies", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special design").id,
@@ -78,12 +110,69 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "Business Logos", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
     location_id: nyc_id
 )
+
+Design.create(
+    title: "Thanksgiving", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "special desin").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "Christmass", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "special desin").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "LA official logo", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "logo design").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "Parks and recreational areas", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "custom made").id,
+    location_id: nyc_id
+)
+
+# va_id
+Design.create(
+    title: "Birthdays and anniversaries", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "special design").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "Graduation ceremonies", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "special design").id,
+    location_id: nyc_id
+)
+
+Design.create(
+    title: "Business Logos", 
+    description: "ddd", 
+    style: "black and white",
+    order_id: Order.find_or_create_by(title: "logo design").id,
+    location_id: nyc_id
+) 
 
 # orders 
 

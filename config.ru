@@ -1,10 +1,7 @@
-require './config/environment'
+require "./config/environment"
 
-# if ActiveRecord::Migrator.needs_migration?
-#   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
-# end
+# use Rack::MethodOverride
 
-## so I have stopped this warning in order to make tux work
+use Rack::MethodOverride
 use DesignsController
 run ApplicationController
-

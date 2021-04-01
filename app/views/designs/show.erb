@@ -1,0 +1,19 @@
+
+<h1> Design Info </h1>
+
+<h2> Design Title: <%= @design.title %> </h2>
+
+
+<h3> Design Description: <%= @design.description %> </h3>
+
+<% if @design.style %>
+   <h4> design style: <%= @design.style %> </h4>
+    <%else %>
+        <h4> Design style Not available <h4>
+<% end %>
+
+
+<form action="/designs/<%= @design.id %>" method="POST">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete this Design">
+</form>
