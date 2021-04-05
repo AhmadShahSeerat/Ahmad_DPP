@@ -1,122 +1,79 @@
-
-
 class DesignsController < ApplicationController
+    # READ all designs
+    get '/designs' do
+        redirect_if_not_logged_in
 
-        # READ all designs
-        get '/designs' do
-            @designs = Design.all
-            erb :'designs/index'
-        end
-
-#new design form
-        get '/designs/new' do 
-            erb :'/designs/new'
-         end
-
-#read one design
-         get '/designs/:id' do 
-            @design = Design.find_by_id(params[:id])
-            erb :'/designs/show'
-            end
-
-
-        post '/designs' do 
-            design = Design.new(title: params["design"])
-            if design.save 
-                redirect "/designs/#{design.id}"
-            else 
-
-                "Error #{design.errors.full_messages.join(", ")}"
-                                # redirect "/designs/new"
-
-        end
+        @designs = current_user.designs
+        erb :'designs/index'
     end
 
-    #updating form
-    get '/designs/:id/edit' do
-        @design = Design.find_by_id(params[:id])
-        erb :'designs/edit'
-    end
-        
-    patch '/designs/:id' do
-    design = Design.find_by_id(params[:id])
-        design.title = params["title"]
+    # CREATE new design (render form)
+    get '/designs/new' do
+        redirect_if_not_logged_in
 
-        if design.update(params["design"])
+        erb :'designs/new'
+    end
+
+    # READ 1 design
+    get '/designs/:id' do
+        redirect_if_not_logged_in
+        redirect_if_not_authorized
+
+        erb :'designs/show'
+    end
+
+    # CREATE new design (save in db)
+    post '/designs' do
+        redirect_if_not_logged_in
+
+        # design = Design.new(params["design"])
+        # design.user_id = session["user_id"]
+        design = current_user.designs.build(params["design"])
+
+        if design.save
             redirect "/designs/#{design.id}"
         else
-            redirect "/designs/#{design.id}/edit"
+            "Error #{design.errors.full_messages.join(", ")}"
+            # redirect "/designs/new"
         end
     end
 
-#delet
+    # UPDATE 1 design (render form)
+    get '/designs/:id/edit' do
+        redirect_if_not_logged_in
+        redirect_if_not_authorized
 
-delete '/designs/:id' do 
-    design = Design.find_by_id(params[:id])
-    design.destroy 
-
-    redirect "/designs"
-end
-
-
-       
+        erb :'designs/edit'
     end
 
+    # UPDATE 1 design (save in db)
+    patch '/designs/:id' do
+        redirect_if_not_logged_in
+        redirect_if_not_authorized
+        
+        if @design.update(params["design"])
+            redirect "/designs/#{@design.id}"
+        else
+            redirect "/designs/#{@design.id}/edit"
+        end
+    end
 
+    # DELETE 1 design
+    delete "/designs/:id" do
+        redirect_if_not_logged_in
+        redirect_if_not_authorized
 
+        @design.destroy
 
+        redirect "/designs"
+    end
 
+    private
 
-
-
-
-
-     
-    #     # READ 1 design
-    #     get '/designs/:id' do
-    #         @design = Design.find_by_id(params[:id])
-    #         erb :'designs/show'
-    #     end
-    
-       # CREATE new designs (render form)
-    #     get '/designs/new' do
-    #         erb :'designs/new'
-    #     end
-    #     # CREATE new design (save in db)
-    #     post '/designs' do
-    #         design = Design.new(title: params["title"])
-    
-    #         if design.save
-    #             redirect "/designs/#{design.id}"
-    #         else
-    #             redirect "/designs/new"
-    #         end
-    #     end
-    
-    #     # UPDATE 1 design (render form)
-    #     get '/design/:id/edit' do
-    #         @design = Design.find_by_id(params[:id])
-    #         erb :'designs/edit'
-    #     end
-    
-    #     # UPDATE 1 design (save in db)
-    #     patch '/designs/:id' do
-    #         design = Design.find_by_id(params[:id])
-    #         design.title = params["title"]
-    
-    #         if design.save
-    #             redirect "/designs/#{design.id}"
-    #         else
-    #             redirect "/designs/#{design.id}/edit"
-    #         end
-    #     end
-    
-    #     # DELETE 1 movie
-    #     delete "/designs/:id" do
-    #         design = Design.find_by_id(params[:id])
-    #         design.destroy
-            
-    #         redirect "/designs"
-    #     end
-     
-
+    def redirect_if_not_authorized
+        @design = Design.find_by_id(params[:id])
+        if @design.user_id != session["user_id"]
+            redirect "/designs"
+        end
+    end
+end

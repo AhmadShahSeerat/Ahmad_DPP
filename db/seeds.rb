@@ -4,7 +4,7 @@ va_id = Location.create(city: "Virginia").id
 
 # # nyc areas
 Design.create(
-    title: "trial", 
+    title: "design 1", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "premade designs").id,
@@ -12,7 +12,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 2", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -20,7 +20,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 3", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "custom made design").id,
@@ -28,7 +28,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 4", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "premade designs").id,
@@ -36,7 +36,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 5", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -44,7 +44,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 6", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "custom made design").id,
@@ -53,7 +53,7 @@ Design.create(
 
 # la_id
 Design.create(
-    title: "trial", 
+    title: "design 7", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special desin").id,
@@ -61,7 +61,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 8", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special desin").id,
@@ -69,7 +69,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 9", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -77,7 +77,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 10", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "custom made").id,
@@ -86,7 +86,7 @@ Design.create(
 
 # va_id
 Design.create(
-    title: "trial", 
+    title: "design 11", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special design").id,
@@ -94,7 +94,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 12", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special design").id,
@@ -102,7 +102,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 13", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -110,7 +110,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 14", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special desin").id,
@@ -118,7 +118,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 15", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special desin").id,
@@ -126,7 +126,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 16", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
@@ -134,7 +134,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 17", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "custom made").id,
@@ -143,7 +143,7 @@ Design.create(
 
 # va_id
 Design.create(
-    title: "trial", 
+    title: "design 18", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special design").id,
@@ -151,7 +151,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 19", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "special design").id,
@@ -159,7 +159,7 @@ Design.create(
 )
 
 Design.create(
-    title: "trial", 
+    title: "design 20", 
     description: "ddd", 
     style: "black and white",
     order_id: Order.find_or_create_by(title: "logo design").id,
