@@ -1,3 +1,8 @@
+Design.destroy_all 
+Order.destroy_all
+Location.destroy_all
+
+
 nyc_id = Location.create(city: "NYC_five_boroughs").id
 la_id = Location.create(city: "Los_Angeles").id
 va_id = Location.create(city: "Virginia").id
