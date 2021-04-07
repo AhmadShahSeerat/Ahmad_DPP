@@ -36,3 +36,5 @@ class ApplicationController < Sinatra::Base
       end
   end
 end
+
+#checking to see if committed
