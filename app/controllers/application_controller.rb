@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
       enable :sessions
       set :session_secret, ENV['SESSION_SECRET']
   end
-
+#   ccccccccgit
   get '/' do
       erb :search
   end
@@ -38,3 +38,7 @@ class ApplicationController < Sinatra::Base
 end
 
 #checking to see if committed
+#asty ya ni
+
+
+#hi are you there
