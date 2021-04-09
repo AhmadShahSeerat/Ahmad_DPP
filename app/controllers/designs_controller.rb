@@ -22,21 +22,23 @@ class DesignsController < ApplicationController
         erb :'designs/show'
     end
 
-    # CREATE new design (save in db)
+
+
     post '/designs' do
         redirect_if_not_logged_in
 
-        # design = Design.new(params["design"])
+        # design = design.new(params["design"])
         # design.user_id = session["user_id"]
         design = current_user.designs.build(params["design"])
 
         if design.save
             redirect "/designs/#{design.id}"
         else
-            "Error #{design.errors.full_messages.join(", ")}"
-            # redirect "/designs/new"
+            flash[:error] = "#{design.errors.full_messages.join(", ")}"
+            redirect "/designs/new"
         end
     end
+  
 
     # UPDATE 1 design (render form)
     get '/designs/:id/edit' do
@@ -58,6 +60,7 @@ class DesignsController < ApplicationController
         end
     end
 
+
     # DELETE 1 design
     delete "/designs/:id" do
         redirect_if_not_logged_in
@@ -69,11 +72,13 @@ class DesignsController < ApplicationController
     end
 
     private
+ 
+    def redirect_if_not_authorized # hey is this design belongs to this user
+        @design = Design.find_by_id(params[:id]) #find the design
+        if @design.user_id != session["user_id"] #and if this design is not belongs to this user redirect him to his designs
 
-    def redirect_if_not_authorized
-        @design = Design.find_by_id(params[:id])
-        if @design.user_id != session["user_id"]
             redirect "/designs"
         end
     end
 end
+

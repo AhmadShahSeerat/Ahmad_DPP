@@ -2,14 +2,15 @@ class ApplicationController < Sinatra::Base
   # set :views, Proc.new { File.join(root, "../views") }
   
   configure do
-      set :views, 'app/views'
-      set :public_folder, 'public'
-      enable :sessions
-      set :session_secret, ENV['SESSION_SECRET']
-  end
-#   ccccccccgit
+    set :views, 'app/views'
+    set :public_folder, 'public'
+    enable :sessions
+    set :session_secret, ENV['SESSION_SECRET']
+    use Rack::Flash, :sweep => true
+end
+
   get '/' do
-      erb :search
+      erb :welcome
   end
 
   get '/search' do
@@ -17,13 +18,15 @@ class ApplicationController < Sinatra::Base
      erb :results
   end
 
-  helpers do
+  helpers do # helper methods are more for readibility purpose
+              #can be used in views as well 
+              # so in here we are seeing to current user
       def current_user
-          # memoization
+          # memoization   # so here we say that if the user object is there give it to me, if not then find it for me
           @current_user ||= User.find_by_id(session["user_id"])
       end
 
-      def logged_in?
+      def logged_in?  # is currnet user is logged in log him in. readible 
           !!current_user
       end
 
@@ -40,5 +43,4 @@ end
 #checking to see if committed
 #asty ya ni
 
-dl;fds;fljds;lfjds;lfjds;fkjads;fkj;dfkja;dfkj;asdfkj;
 #hi are you there

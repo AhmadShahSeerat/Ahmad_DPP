@@ -15,7 +15,8 @@ class SessionsController < ApplicationController
     post '/login' do
         redirect_if_logged_in
         # take data find User
-        user = User.find_by(email: params["user"]["email"])
+        user = User.find_by(email: params["user"]["email"]) #this goes to our db and say select * from users 
+                                                            #where user is equal to what we just passed in
 
         # if that user is authenticate, log in, redirect /designs
         if user && user.authenticate(params["user"]["password"])
@@ -32,6 +33,7 @@ class SessionsController < ApplicationController
         redirect_if_not_logged_in
         # logout a user
         # session.clear
+        #session.clear clears out everything we have there, but if we want to delete the user only then we use this method
         session.delete("user_id")
         redirect "/login"
     end
