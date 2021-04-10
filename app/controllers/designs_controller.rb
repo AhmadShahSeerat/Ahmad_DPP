@@ -38,7 +38,6 @@ class DesignsController < ApplicationController
             redirect "/designs/new"
         end
     end
-  
 
     # UPDATE 1 design (render form)
     get '/designs/:id/edit' do
