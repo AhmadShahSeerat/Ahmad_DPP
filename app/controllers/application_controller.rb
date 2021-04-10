@@ -40,9 +40,3 @@ end
   end
 end
 
-#checking to see if committed
-#asty ya ni
-
-#hi are you there
-
-#checking branch master
