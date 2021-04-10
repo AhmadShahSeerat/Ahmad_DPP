@@ -22,3 +22,11 @@ gem "bcrypt", "~> 3.1"
 gem "dotenv", "~> 2.7"
 
 gem "rack-flash3", "~> 1.0"
+
+# group :production do
+#   gem 'pg'
+# end
+
+# group :development, :test do
+#   gem 'sqlite3'
+# end

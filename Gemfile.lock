@@ -23,6 +23,7 @@ GEM
     minitest (5.14.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    pg (1.2.3)
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -72,6 +73,7 @@ DEPENDENCIES
   activerecord
   bcrypt (~> 3.1)
   dotenv (~> 2.7)
+  pg
   pry
   rack
   rack-flash3 (~> 1.0)
@@ -84,4 +86,4 @@ DEPENDENCIES
   tux (~> 0.3.0)
 
 BUNDLED WITH
-   2.2.6
+   2.2.15
