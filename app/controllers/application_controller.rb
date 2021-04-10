@@ -38,3 +38,4 @@ class ApplicationController < Sinatra::Base
 end
 
 #checking to see if committed
+#on master and looking the changes
