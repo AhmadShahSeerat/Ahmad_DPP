@@ -2,6 +2,10 @@
 
 <form action="/designs/<%= @design.id %>" method="POST">
     <input type="hidden" name="_method" value="patch">
-    <input type="text" name="title" value="<%= @design.title %>">
+    <input type="text" name="design[title]" value="<%= @design.title %>">
+        <input type="text" name="design[description]" value="<%= @design.description %>">
     <input type="submit" value="Update Design">
 </form>
+
+
+

@@ -20,13 +20,15 @@ end
 
     #create new design here is post since we already rendered the form 
    post '/designs' do 
-    design = Design.new(title: params[:title])  
+    design = Design.new(params[:design])  
     
     if design.save 
      redirect "/designs/#{design.id}"
 
     else 
-        redirect "/designs/new"
+        # redirect "/designs/new"
+        "Error  #{design.errors.full_messages.join(", ")}"
+
        end
     end
 
@@ -39,9 +41,8 @@ end
     #update one design to database 
     patch '/designs/:id' do
         design = Design.find_by_id(params[:id])
-        design.title = params["title"]
-
-        if design.save
+     
+        if design.update(params["design"])
             redirect "/designs/#{design.id}"
         else
             redirect "/designs/#{design.id}/edit"
