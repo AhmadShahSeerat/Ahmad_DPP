@@ -1,0 +1,17 @@
+
+<% if @design %>
+
+<h3><%= @design.title %></h3>
+
+<form action="/designs/<%= @design.id %>" method="post">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete Design">
+</form>
+
+
+<% else %>
+
+<h1><%= " 404 ERROR "%></h1>
+
+<%end%>
+
