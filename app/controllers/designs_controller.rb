@@ -1,5 +1,4 @@
 class DesignsController < ApplicationController
-    # READ all designs
     get '/designs' do
         redirect_if_not_logged_in
 
@@ -7,14 +6,21 @@ class DesignsController < ApplicationController
         erb :'designs/index'
     end
 
-    # CREATE new design (render form)
     get '/designs/new' do
         redirect_if_not_logged_in
 
         erb :'designs/new'
     end
 
-    # READ 1 design
+
+
+get '/designs/all' do 
+    @designs = Design.all
+    erb :all
+end
+
+
+
     get '/designs/:id' do
         redirect_if_not_logged_in
         redirect_if_not_authorized
@@ -24,11 +30,19 @@ class DesignsController < ApplicationController
 
 
 
+
+
+
+
+
+
+
+
     post '/designs' do
         redirect_if_not_logged_in
 
-        # design = design.new(params["design"])
-        # design.user_id = session["user_id"]
+
+
         design = current_user.designs.build(params["design"])
 
         if design.save
@@ -39,7 +53,6 @@ class DesignsController < ApplicationController
         end
     end
 
-    # UPDATE 1 design (render form)
     get '/designs/:id/edit' do
         redirect_if_not_logged_in
         redirect_if_not_authorized
@@ -47,7 +60,6 @@ class DesignsController < ApplicationController
         erb :'designs/edit'
     end
 
-    # UPDATE 1 design (save in db)
     patch '/designs/:id' do
         redirect_if_not_logged_in
         redirect_if_not_authorized
@@ -60,7 +72,6 @@ class DesignsController < ApplicationController
     end
 
 
-    # DELETE 1 design
     delete "/designs/:id" do
         redirect_if_not_logged_in
         redirect_if_not_authorized
@@ -72,10 +83,9 @@ class DesignsController < ApplicationController
 
     private
  
-    def redirect_if_not_authorized # hey is this design belongs to this user
-        @design = Design.find_by_id(params[:id]) #find the design
-        if @design.user_id != session["user_id"] #and if this design is not belongs to this user redirect him to his designs
-
+    def redirect_if_not_authorized
+        @design = Design.find_by_id(params[:id]) 
+        if @design.user_id != session["user_id"] 
             redirect "/designs"
         end
     end
