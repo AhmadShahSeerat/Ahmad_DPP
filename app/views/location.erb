@@ -1,0 +1,9 @@
+
+<h2>designs with location id </h2>
+
+<ul>
+<% @designs.each do |d| %>
+
+<li><%= d.location.city %> <%= d.style%></li>
+<% end %>
+</ul>

@@ -12,12 +12,28 @@ class DesignsController < ApplicationController
         erb :'designs/new'
     end
 
+#designs per order and per location. associate each design to a location and order if there is any.
+get '/designs/orlo' do 
+    #all designs 
+    @designs = Design.all
+    #render a form  
+    erb :'designs/orlo'
+end
 
-
+#to see all designs 
 get '/designs/all' do 
     @designs = Design.all
-    erb :all
+    erb :'designs/all'
 end
+
+#to see all designs that are associated to locations
+get '/designs/loc' do 
+    #first find all designs 
+    @designs = Design.all
+    #then render it 
+    erb :'design/location'
+end
+
 
 
 

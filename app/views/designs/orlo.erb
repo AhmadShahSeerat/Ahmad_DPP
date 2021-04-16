@@ -1,0 +1,20 @@
+
+<h2>designs order and location if any</h2>
+
+<ul>
+
+<% @designs.all.each do |d| %>
+
+<% if d.order && d.location %>
+
+<li><%= d.location.city  %> <%= d.user.email%> </li>
+
+<% else %>
+
+<%= d.title %>
+
+<% end %>
+
+<% end %>
+
+</ul>
