@@ -1,4 +1,5 @@
 class DesignsController < ApplicationController
+    
     get '/designs' do
         redirect_if_not_logged_in
 
@@ -6,35 +7,16 @@ class DesignsController < ApplicationController
         erb :'designs/index'
     end
 
+    get '/designs/all' do 
+         @designs = Design.all
+         erb :'designs/all'
+    end
+
     get '/designs/new' do
         redirect_if_not_logged_in
 
         erb :'designs/new'
     end
-
-#designs per order and per location. associate each design to a location and order if there is any.
-get '/designs/orlo' do 
-    #all designs 
-    @designs = Design.all
-    #render a form  
-    erb :'designs/orlo'
-end
-
-#to see all designs 
-get '/designs/all' do 
-    @designs = Design.all
-    erb :'designs/all'
-end
-
-#to see all designs that are associated to locations
-get '/designs/loc' do 
-    #first find all designs 
-    @designs = Design.all
-    #then render it 
-    erb :'design/location'
-end
-
-
 
 
     get '/designs/:id' do
@@ -44,20 +26,8 @@ end
         erb :'designs/show'
     end
 
-
-
-
-
-
-
-
-
-
-
     post '/designs' do
         redirect_if_not_logged_in
-
-
 
         design = current_user.designs.build(params["design"])
 
@@ -68,6 +38,7 @@ end
             redirect "/designs/new"
         end
     end
+
 
     get '/designs/:id/edit' do
         redirect_if_not_logged_in
